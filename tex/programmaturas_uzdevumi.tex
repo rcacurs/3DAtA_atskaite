@@ -1,3 +1,23 @@
 \subsection{Programmatūras veicamie uzdevumi}
 
-Rentgenu datortomogrāfijas uzņēmumi ir vairāku pelēktoņu 2D attēlu kopums, kur katrs no attēliem reprezentē vienu izmeklējamā objekta slāni. Tiešā veidā datortomogrāfijas uzņēmumi nav piemēroti 3D attēlošanai (3D displeji, 3D objektu 2D projekciju attēlošana 2D ekrānos).
+Rentgenu datortomogrāfijas uzņēmumi ir vairāku pelēktoņu 2D attēlu kopums, kur katrs no attēliem reprezentē vienu izmeklējamā objekta slāni. Kaut arī tomogrāfijas uzņēmumi satur 3D informāciju, tie tiešā veidā nav piemēroti 3D attēlošanai (3D ekrāni, 3D objektu 2D projekciju attēlošana 2D ekrānos). Šī iemesla dēļ ir izstrādāta programmatūra, kuras galvenais uzdevums ir: izmantojot datortomogrāfijas uzņēmumos esošo 3D informāciju, rekonstruēt plaušu asinsvadu tīkla 3D ģeometriju un saglabāt to  standartizētā 3D ģeometrijas failu formātā. 
+Šo uzdevumu var sadalīt sekojošos apakšuzdevumos:
+\begin{itemize}
+\item{} Datu ieguve no datortomogrāfijas uzņēmumu failiem (.mhd, .raw);
+\item{} Plaušas asinsvadu segmentēšana datortomogrāfijas uzņēmuma slāņos; 
+\item{} Plaušas asinsvadu 3D ģeometrijas rekonstruēšana;
+\item{} Plaušas asinsvadu 3D ģeometrijas saglabāšana standart formāta failos (Wavefront .obj);
+\item{} Datortomogrāfijas slāņu 2D vizualizācija;
+\item{} Rekonstruēto asinsvadu 3D vizualizācija;
+\item{} Grafiskās lietotāja saskarnes izveide.
+\end{itemize}
+
+\subsection{Programmatūras izstrādes valoda un esošu bibliotēku izmantošana}
+
+Par programmatūra izstrādes valodu tika izvēlēta JAVA programmēšanas valoda. Galvenie kritēriji kādēļ tika izvēlēta šī valoda bija: programmatūras spēja darboties uz dažādām platformām, esošu bibliotēku izmantošanas ērtība, bezmaksas izstrādes rīku pieejamība, kā arī projektā iesaistīto cilvēku pieredze ar šo valodu.
+
+Lai atvieglotu programmatūras izstrādi tika meklētas esošas bibliotēkas, kas spētu veikt daļu no nepieciešamajiem uzdevumiem. Kā prasība šīm bibliotēkām tika izvirzīta tas, ka šīm bibliotēkām jābūt tīrai JAVA implementācijai, lai nebūtu problēmu uzstādīšanai uz dažādām platformām.
+
+Datu ieguvei parasti tiek izmantoti DICOM standarta rīki. Ir vairākas bibliotēkas, kas piedāvā DICOM standarta rīkus, kuru salīdzinājums atrodams šeit \cite{dicombibcomp}. Mums bija pieejami tomogrāfijas uzņēmumi no VESSEL12 sacensībā kuri bija pieejami īpašā formātā(MetaImage), kas sastāv no diviem failiem: teksta faila, kas satur aprakstošo informāciju pat datortomogrāfijas uzņēmumu (paplaīsnājums .mhd) un bināru datu failu (paplašinājums .raw). Diemžēl nevienā no pieejamām bibliotēkām, kurai būtu pieejama laba dokumentācija, funkcionalitāte šo failu nolasīšanai netika atrasta, tādēļ šī daļa tika implementēta patstāvīgi.
+
+Asinsvadu segmentēšanas daļai bija nepieciešama lineārās algebras bibliotēka. Galvenās prasības šai bibliotēkai bija ātrdarbība, matricu operāciju pieejamība, laba matricas datu struktūras implementācija ar funkcionalitāti ērtai un elastīgai matricu elementu datu uzstādīšanai un piekļūšanai, kā arī labas dokumentācijas pieejamība. Populārāko lineārās algebras bibliotēku ātrdarbības salīdzinājums ir salīdzināts šiet - \cite{linearlibcomp}.
