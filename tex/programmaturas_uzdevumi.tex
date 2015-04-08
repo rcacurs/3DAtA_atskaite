@@ -12,12 +12,3 @@ Rentgenu datortomogrāfijas uzņēmumi ir vairāku pelēktoņu 2D attēlu kopums
 \item{} Grafiskās lietotāja saskarnes izveide.
 \end{itemize}
 
-\subsection{Programmatūras izstrādes valoda un esošu bibliotēku izmantošana}
-
-Par programmatūra izstrādes valodu tika izvēlēta JAVA programmēšanas valoda. Galvenie kritēriji kādēļ tika izvēlēta šī valoda bija: programmatūras spēja darboties uz dažādām platformām, esošu bibliotēku izmantošanas ērtība, bezmaksas izstrādes rīku pieejamība, kā arī projektā iesaistīto cilvēku pieredze ar šo valodu.
-
-Lai atvieglotu programmatūras izstrādi tika meklētas esošas bibliotēkas, kas spētu veikt daļu no nepieciešamajiem uzdevumiem. Kā prasība šīm bibliotēkām tika izvirzīta tas, ka šīm bibliotēkām jābūt tīrai JAVA implementācijai, lai nebūtu problēmu uzstādīšanai uz dažādām platformām.
-
-Datu ieguvei parasti tiek izmantoti DICOM standarta rīki. Ir vairākas bibliotēkas, kas piedāvā DICOM standarta rīkus, kuru salīdzinājums atrodams šeit \cite{dicombibcomp}. Mums bija pieejami tomogrāfijas uzņēmumi no VESSEL12 sacensībā kuri bija pieejami īpašā formātā(MetaImage), kas sastāv no diviem failiem: teksta faila, kas satur aprakstošo informāciju pat datortomogrāfijas uzņēmumu (paplaīsnājums .mhd) un bināru datu failu (paplašinājums .raw). Diemžēl nevienā no pieejamām bibliotēkām, kurai būtu pieejama laba dokumentācija, funkcionalitāte šo failu nolasīšanai netika atrasta, tādēļ šī daļa tika implementēta patstāvīgi.
-
-Asinsvadu segmentēšanas daļai bija nepieciešama lineārās algebras bibliotēka. Galvenās prasības šai bibliotēkai bija ātrdarbība, matricu operāciju pieejamība, laba matricas datu struktūras implementācija ar funkcionalitāti ērtai un elastīgai matricu elementu datu uzstādīšanai un piekļūšanai, kā arī labas dokumentācijas pieejamība. Populārāko lineārās algebras bibliotēku ātrdarbības salīdzinājums ir salīdzināts šiet - \cite{linearlibcomp}.
